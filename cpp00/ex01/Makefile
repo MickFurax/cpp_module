@@ -1,6 +1,6 @@
 NAME = phonebook
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS = -Wall -Wextra -Werror
 SRC = Contact/Contact.cpp \
 	PhoneBook/PhoneBook.cpp \
 	main.cpp \
@@ -9,6 +9,10 @@ all: $(NAME)
 
 $(NAME): $(SRC)
 	@$(CC) $(CFLAGS) $(SRC) -o $(NAME)
+	@echo "✔ Compiled successfully"
+
+98: $(SRC)
+	@$(CC) $(CFLAGS) -std=c++98 $(SRC) -o $(NAME)
 	@echo "✔ Compiled successfully"
 
 clean:

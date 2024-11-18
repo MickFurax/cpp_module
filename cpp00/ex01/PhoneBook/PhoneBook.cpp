@@ -6,14 +6,11 @@
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 09:48:17 by arabeman          #+#    #+#             */
-/*   Updated: 2024/11/14 09:51:47 by arabeman         ###   ########.fr       */
+/*   Updated: 2024/11/15 15:18:51 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
-#include <iomanip>
-#include <iostream>
-#include <stdlib.h>
 
 PhoneBook::PhoneBook()
 {
@@ -26,19 +23,15 @@ PhoneBook::~PhoneBook()
 
 void PhoneBook::addContact(Contact contact)
 {
-	this->contact[this->index] = contact;
-	if (this->index < 7)
-		index++;
+	this->contacts[this->index] = contact;
+	this->index != 7 ? this->index++ : this->index = 0;
 }
 
-static std::string _cutString(std::string str)
-{
-	return (str.length() > 10 ? str.substr(0, 9) + "." : str);
-}
 
-static void	_displayHeader(void)
+void	PhoneBook::displayHeader(void)
 {
-	std::cout << std::endl;
+	std::cout << "+----------+----------+----------+----------+" << std::endl;
+	std::cout << "|";
 	std::cout << std::right << std::setw(10) << "Index";
 	std::cout << "|";
 	std::cout << std::right << std::setw(10) << "First name";
@@ -46,23 +39,35 @@ static void	_displayHeader(void)
 	std::cout << std::right << std::setw(10) << "Last name";
 	std::cout << "|";
 	std::cout << std::right << std::setw(10) << "Nickname";
+	std::cout << "|";
 	std::cout << std::endl;
+	std::cout << "+==========+==========+==========+==========+" << std::endl;
 }
 
-static void	_displayRow(Contact contact, int i)
+std::string PhoneBook::truncString(std::string str)
 {
+	return (str.length() > 10 ? str.substr(0, 9) + "." : str);
+}
+void	PhoneBook::displayRow(Contact contact, int i)
+{
+	if (contact.getFirstName().empty())
+		return ;
+	std::cout << "|";
 	std::cout << std::right << std::setw(10) << i + 1;
 	std::cout << "|";
-	std::cout << std::right << std::setw(10) << _cutString(contact.getFirstName());
+	std::cout << std::right << std::setw(10) << truncString(contact.getFirstName());
 	std::cout << "|";
-	std::cout << std::right << std::setw(10) << _cutString(contact.getLastName());
+	std::cout << std::right << std::setw(10) << truncString(contact.getLastName());
 	std::cout << "|";
-	std::cout << std::right << std::setw(10) << _cutString(contact.getNickname());
+	std::cout << std::right << std::setw(10) << truncString(contact.getNickname());
+	std::cout << "|";
 	std::cout << std::endl;
 }
 
-static void	_displayContact(Contact contact)
+void	PhoneBook::displayContact(Contact contact)
 {
+	if (contact.getFirstName().empty())
+		return ;
 	std::cout << "First name: " << contact.getFirstName() << std::endl;
 	std::cout << "Last name: " << contact.getLastName() << std::endl;
 	std::cout << "Nickname: " << contact.getNickname() << std::endl;
@@ -70,15 +75,14 @@ static void	_displayContact(Contact contact)
 	std::cout << "Darkest secret: " << contact.getDarkestSecret() << std::endl;
 }
 
-
-
 void PhoneBook::searchContact()
 {
-	if (index > 0)
+	if (!this->contacts[0].getFirstName().empty())
 	{
-		_displayHeader();
-		for (int i = 0; i < this->index; i++)
-			_displayRow(this->contact[i], i);
+		this->displayHeader();
+		for (int i = 0; i < 8; i++)
+			this->displayRow(this->contacts[i], i);
+		std::cout << "+----------+----------+----------+----------+";
 		std::cout << std::endl;
 		std::cout << "Select index: ";
 		std::string index_to_search;
@@ -90,15 +94,16 @@ void PhoneBook::searchContact()
 			exit(0);
 			return ;
 		}
-		for (int i = 0; i < this->index; i++)
+		for (int i = 0; i < 8; i++)
 		{
-			if (atoi(index_to_search.c_str()) == i + 1)
+			if (atoi(index_to_search.c_str()) == i + 1
+				&& !this->contacts[i].getFirstName().empty())
 			{
-                _displayContact(this->contact[i]);
+				this->displayContact(this->contacts[i]);
 				return ;
 			}
 		}
 		std::cout << "Invalid index" << std::endl;
-        this->searchContact();
+		this->searchContact();
 	}
 }

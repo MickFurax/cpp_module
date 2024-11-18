@@ -6,7 +6,7 @@
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 10:24:29 by arabeman          #+#    #+#             */
-/*   Updated: 2024/11/14 14:46:30 by arabeman         ###   ########.fr       */
+/*   Updated: 2024/11/15 15:18:12 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ bool Account::makeWithdrawal(int withdrawal)
 		this->_totalNbWithdrawals++;
 		this->_totalAmount -= withdrawal;
 		std::cout << "amount:" << this->_amount << ";";
-		std::cout << "nb_deposits:" << this->_nbDeposits;
+		std::cout << "nb_withdrawals:" << this->_nbWithdrawals;
 	}
 	std::cout << std::endl;
 	return (true);
@@ -118,7 +118,7 @@ void Account::displayAccountsInfos(void)
 	std::cout << "accounts:" << getNbAccounts() << ";";
 	std::cout << "total:" << getTotalAmount() << ";";
 	std::cout << "deposits:" << getNbDeposits() << ";";
-	std::cout << "withdrawals:" << getNbWithdrawals() << ";";
+	std::cout << "withdrawals:" << getNbWithdrawals();
 	std::cout << std::endl;
 }
 

@@ -6,7 +6,7 @@
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 10:06:34 by arabeman          #+#    #+#             */
-/*   Updated: 2024/11/13 13:19:26 by arabeman         ###   ########.fr       */
+/*   Updated: 2024/11/15 14:48:00 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define CONTACT_HPP
 
 # include <iostream>
-# include <string>
 
 class Contact
 {
@@ -24,6 +23,7 @@ class Contact
 	std::string nickname;
 	std::string phoneNumber;
 	std::string darkestSecret;
+	std::string getInput(const std::string label);
 
   public:
 	Contact();

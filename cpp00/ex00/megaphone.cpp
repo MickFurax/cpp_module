@@ -6,11 +6,10 @@
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 10:29:47 by arabeman          #+#    #+#             */
-/*   Updated: 2024/11/09 19:21:44 by arabeman         ###   ########.fr       */
+/*   Updated: 2024/11/15 14:47:04 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <cstring>
 #include <iostream>
 #include <string>
 
