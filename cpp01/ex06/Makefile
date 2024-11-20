@@ -1,9 +1,7 @@
-NAME = braiiiiiiinnnzzzz
+NAME = harlFilter
 CPP = c++
 CFLAGS = -Wall -Wextra -Werror
-SRC = Zombie/Zombie.cpp \
-	newZombie.cpp \
-	randomChump.cpp \
+SRC = Harl/Harl.cpp \
 	main.cpp \
 
 all: $(NAME)

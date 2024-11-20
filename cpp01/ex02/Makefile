@@ -1,16 +1,16 @@
-NAME = hithisisbrain
-CC = c++
+NAME = hiThisIsBrain
+CPP = c++
 CFLAGS = -Wall -Wextra -Werror
 SRC = main.cpp
 
 all: $(NAME)
 
 $(NAME): $(SRC)
-	@$(CC) $(CFLAGS) $(SRC) -o $(NAME)
+	@$(CPP) $(CFLAGS) $(SRC) -o $(NAME)
 	@echo "✔ Compiled successfully"
 
 98: $(SRC)
-	@$(CC) $(CFLAGS) -std=c++98 $(SRC) -o $(NAME)
+	@$(CPP) $(CFLAGS) -std=c++98 $(SRC) -o $(NAME)
 	@echo "✔ Compiled successfully"
 
 clean:

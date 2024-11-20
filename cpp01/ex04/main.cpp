@@ -6,7 +6,7 @@
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:18:30 by arabeman          #+#    #+#             */
-/*   Updated: 2024/11/19 16:21:34 by arabeman         ###   ########.fr       */
+/*   Updated: 2024/11/20 15:06:52 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,31 +15,31 @@
 
 void	ft_sed(std::string &str, std::string s1, std::string s2)
 {
-    int pos = 0;
-    
+	int	pos;
+
+	pos = 0;
+	std::string newString;
 	while (str.find(s1, pos) != std::string::npos)
 	{
-		std::cout << str.find(s1, pos) << std::endl;
-        pos = str.find(s1, pos) + s1.length();
+		newString += str.substr(pos, str.find(s1, pos) - pos) + s2;
+		pos = str.find(s1, pos) + s1.length();
 	}
-	(void)s2;
+	newString += str.substr(pos);
+	str = newString;
 }
 
 int	main(int argc, char **argv)
 {
 	if (argc == 4)
 	{
-		std::string filename = argv[1];
-		std::string s1 = argv[2];
-		std::string s2 = argv[3];
 		std::string newString;
-		std::string newFilename = filename + ".replace";
-		std::ifstream file(filename);
-		std::ofstream newFile(newFilename);
+		std::string newFilename = argv[1];
+		newFilename += ".replace";
+		std::ifstream file(argv[1]);
+		std::ofstream newFile(newFilename.c_str());
 		while (getline(file, newString))
 		{
-			std::cout << newString << std::endl;
-			ft_sed(newString, s1, s2);
+			ft_sed(newString, argv[2], argv[3]);
 			newFile << newString << std::endl;
 		}
 	}

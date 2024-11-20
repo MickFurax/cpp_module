@@ -6,7 +6,7 @@
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 10:33:28 by arabeman          #+#    #+#             */
-/*   Updated: 2024/11/19 15:08:57 by arabeman         ###   ########.fr       */
+/*   Updated: 2024/11/20 14:56:59 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 HumanB::HumanB(std::string name) : name(name)
 {
-    this->weapon = NULL;
+	this->weapon = NULL;
 }
 
 HumanB::~HumanB()
@@ -29,7 +29,7 @@ void HumanB::attack()
 		std::cout << this->name << " is weaponless" << std::endl;
 }
 
-void HumanB::setWeapon(Weapon weapon)
+void HumanB::setWeapon(Weapon &weapon)
 {
-    this->weapon = &weapon;
+	this->weapon = &weapon;
 }

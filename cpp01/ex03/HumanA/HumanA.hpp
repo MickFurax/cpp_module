@@ -6,24 +6,25 @@
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 10:25:09 by arabeman          #+#    #+#             */
-/*   Updated: 2024/11/19 14:51:49 by arabeman         ###   ########.fr       */
+/*   Updated: 2024/11/20 14:56:50 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef HUMAN_A_H
 # define HUMAN_A_H
 
-#include "../Weapon/Weapon.hpp"
+# include "../Weapon/Weapon.hpp"
 
 class HumanA
 {
-private:
-    std::string name;
-    Weapon &weapon;
-public:
-    HumanA(std::string name, Weapon &weapon);
-    ~HumanA();
-    void attack();
+  private:
+	std::string name;
+	Weapon &weapon;
+
+  public:
+	HumanA(std::string name, Weapon &weapon);
+	~HumanA();
+	void attack();
 };
 
 #endif

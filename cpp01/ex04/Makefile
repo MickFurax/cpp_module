@@ -1,5 +1,5 @@
-NAME = sedisforlosers
-CC = c++
+NAME = sedIsForLosers
+CPP = c++
 CFLAGS = -Wall -Wextra -Werror
 SRC = \
 	main.cpp \
@@ -7,11 +7,11 @@ SRC = \
 all: $(NAME)
 
 $(NAME): $(SRC)
-	@$(CC) $(CFLAGS) $(SRC) -o $(NAME)
+	@$(CPP) $(CFLAGS) $(SRC) -o $(NAME)
 	@echo "✔ Compiled successfully"
 
 98: $(SRC)
-	@$(CC) $(CFLAGS) -std=c++98 $(SRC) -o $(NAME)
+	@$(CPP) $(CFLAGS) -std=c++98 $(SRC) -o $(NAME)
 	@echo "✔ Compiled successfully"
 
 clean:

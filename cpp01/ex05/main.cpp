@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/18 11:06:27 by arabeman          #+#    #+#             */
-/*   Updated: 2024/11/20 15:08:04 by arabeman         ###   ########.fr       */
+/*   Created: 2024/11/20 09:10:21 by arabeman          #+#    #+#             */
+/*   Updated: 2024/11/20 12:11:18 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Harl/Harl.hpp"
+#include <iostream>
 
-Zombie::Zombie(std::string name): name(name)
+int main(void)
 {
-    std::cout << "Zombie created" << std::endl;
-}
-
-Zombie::~Zombie()
-{
-    std::cout << "Zombie destroyed" << std::endl;
-}
-
-void Zombie::announce(void)
-{
-    std::cout << this->name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+    Harl harl;
+    harl.complain("lol");
+    harl.complain("DEBUG");
+    harl.complain("INFO");
+    harl.complain("WARNING");
+    harl.complain("ERROR");
+    return (0);
 }

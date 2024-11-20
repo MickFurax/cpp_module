@@ -6,7 +6,7 @@
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 10:20:42 by arabeman          #+#    #+#             */
-/*   Updated: 2024/11/19 10:38:45 by arabeman         ###   ########.fr       */
+/*   Updated: 2024/11/20 14:49:12 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@ const std::string Weapon::getType()
 
 void Weapon::setType(std::string type)
 {
-    this->type = type;
+    if (type.find_first_not_of(" ") != std::string::npos)
+        this->type = type;
 }
