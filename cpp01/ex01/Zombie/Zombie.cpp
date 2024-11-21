@@ -6,7 +6,7 @@
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 14:11:25 by arabeman          #+#    #+#             */
-/*   Updated: 2024/11/19 09:52:23 by arabeman         ###   ########.fr       */
+/*   Updated: 2024/11/21 08:32:34 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 Zombie::Zombie()
 {
-    std::cout << "Zombie created" << std::endl;
+    std::cout << "Someone died and became a zombie" << std::endl;
 }
 
 Zombie::~Zombie()
 {
-    std::cout << "Zombie destroyed" << std::endl;
+    std::cout << name << " died again" << std::endl;
 }
 
 void Zombie::setName(std::string name)

@@ -6,10 +6,11 @@
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 15:18:30 by arabeman          #+#    #+#             */
-/*   Updated: 2024/11/20 15:06:52 by arabeman         ###   ########.fr       */
+/*   Updated: 2024/11/21 08:26:35 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <cstring>
 #include <fstream>
 #include <iostream>
 
@@ -36,12 +37,19 @@ int	main(int argc, char **argv)
 		std::string newFilename = argv[1];
 		newFilename += ".replace";
 		std::ifstream file(argv[1]);
-		std::ofstream newFile(newFilename.c_str());
-		while (getline(file, newString))
+		if (file.is_open())
 		{
-			ft_sed(newString, argv[2], argv[3]);
-			newFile << newString << std::endl;
+			std::ofstream newFile(newFilename.c_str());
+			while (getline(file, newString))
+			{
+				ft_sed(newString, argv[2], argv[3]);
+				newFile << newString << std::endl;
+			}
+			file.close();
+			newFile.close();
 		}
+		else
+			perror(argv[1]);
 	}
 	else
 		std::cout << "Invalid arguments" << std::endl;
