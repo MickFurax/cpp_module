@@ -6,7 +6,7 @@
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 13:15:17 by arabeman          #+#    #+#             */
-/*   Updated: 2024/11/26 13:20:53 by arabeman         ###   ########.fr       */
+/*   Updated: 2024/11/27 09:37:37 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,5 @@ int	main(void)
 	std::cout << a << std::endl;                // 0.0078125
 	std::cout << b << std::endl;                // 10.1016
 	std::cout << Fixed::max(a, b) << std::endl; // 10.1016
-	Fixed c = b;
-	std::cout << c << std::endl;                // 10.1016
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 11:14:56 by arabeman          #+#    #+#             */
-/*   Updated: 2024/11/26 13:55:29 by arabeman         ###   ########.fr       */
+/*   Updated: 2024/11/27 08:41:07 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,7 @@ float   area(Point const a, Point const b, Point const c)
     float bY = b.getY().toFloat();
     float cX = c.getX().toFloat();
     float cY = c.getY().toFloat();
-    float absolute(((aX * (bY - cY) + bX * (cY - aY) + cX * (aY - bY)) / 2.0f));
-    if (absolute < 0)
-            absolute = absolute * -1;
-	return (absolute);
+	return (std::abs((aX * (bY - cY) + bX * (cY - aY) + cX * (aY - bY)) / 2.0f));
 }
 
 bool	bsp(Point const a, Point const b, Point const c, Point const point)
