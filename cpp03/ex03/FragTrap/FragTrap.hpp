@@ -6,7 +6,7 @@
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 11:16:38 by arabeman          #+#    #+#             */
-/*   Updated: 2024/11/28 11:16:39 by arabeman         ###   ########.fr       */
+/*   Updated: 2024/12/06 11:43:39 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <string>
 #include "../ClapTrap/ClapTrap.hpp"
 
-class FragTrap : public ClapTrap
+class FragTrap : public virtual ClapTrap
 {
 private:
 public:

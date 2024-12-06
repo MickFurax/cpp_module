@@ -6,7 +6,7 @@
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 11:16:16 by arabeman          #+#    #+#             */
-/*   Updated: 2024/11/28 17:30:37 by arabeman         ###   ########.fr       */
+/*   Updated: 2024/12/06 17:24:11 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ DiamondTrap::DiamondTrap() : FragTrap(), ScavTrap()
 	std::cout << "??? DiamondTrap created" << std::endl;
 }
 
-DiamondTrap::DiamondTrap(std::string name) : FragTrap((name + "_clap_name")),
+DiamondTrap::DiamondTrap(std::string name) : ClapTrap((name + "_clap_name")),
+											 FragTrap((name + "_clap_name")),
 											 ScavTrap((name + "_clap_name")),
 											 name(name)
 {
@@ -61,7 +62,7 @@ void DiamondTrap::attack(const std::string &target)
 
 void DiamondTrap::whoAmI(void)
 {
-	std::cout << "Hello, " << "my name is " << this->name << " and my ClapTrap name is " << FragTrap::getName() << std::endl;
+	std::cout << "Hello, " << "my name is " << this->name << " and my ClapTrap name is " << ClapTrap::getName() << std::endl;
 }
 
 // getter
