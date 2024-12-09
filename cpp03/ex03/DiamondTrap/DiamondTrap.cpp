@@ -6,7 +6,7 @@
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 11:16:16 by arabeman          #+#    #+#             */
-/*   Updated: 2024/12/06 17:24:11 by arabeman         ###   ########.fr       */
+/*   Updated: 2024/12/09 17:21:04 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,12 @@
 
 DiamondTrap::DiamondTrap() : FragTrap(), ScavTrap()
 {
+	FragTrap fragtrap(name + "_frag_name");
+	ScavTrap scavtrap(name + "_scav_name");
+
+	setHitPoints(fragtrap.getHitPoints());
+	setEnergyPoints(scavtrap.getEnergyPoints());
+	setAttackDamage(fragtrap.getAttackDamage());
 	std::cout << "??? DiamondTrap created" << std::endl;
 }
 
@@ -22,6 +28,13 @@ DiamondTrap::DiamondTrap(std::string name) : ClapTrap((name + "_clap_name")),
 											 ScavTrap((name + "_clap_name")),
 											 name(name)
 {
+
+	FragTrap fragtrap("Temporary");
+	ScavTrap scavtrap("Temporary");
+
+	setHitPoints(fragtrap.getHitPoints());
+	setEnergyPoints(scavtrap.getEnergyPoints());
+	setAttackDamage(fragtrap.getAttackDamage());
 	std::cout << "DiamondTrap " << name << " created" << std::endl;
 }
 
@@ -71,38 +84,8 @@ std::string DiamondTrap::getName(void) const
 	return (this->name);
 }
 
-int DiamondTrap::getHitPoints(void) const
-{
-	return (FragTrap::getHitPoints());
-}
-
-int DiamondTrap::getEnergyPoints(void) const
-{
-	return (ScavTrap::getEnergyPoints());
-}
-
-int DiamondTrap::getAttackDamage(void) const
-{
-	return (FragTrap::getAttackDamage());
-}
-
 // setter
 void DiamondTrap::setName(std::string name)
 {
 	this->name = name;
-}
-
-void DiamondTrap::setHitPoints(int hit_points)
-{
-	FragTrap::setHitPoints(hit_points);
-}
-
-void DiamondTrap::setEnergyPoints(int energy_points)
-{
-	ScavTrap::setEnergyPoints(energy_points);
-}
-
-void DiamondTrap::setAttackDamage(int attack_damage)
-{
-	FragTrap::setAttackDamage(attack_damage);
 }

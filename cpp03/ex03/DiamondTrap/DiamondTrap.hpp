@@ -6,7 +6,7 @@
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 11:16:24 by arabeman          #+#    #+#             */
-/*   Updated: 2024/11/28 13:32:29 by arabeman         ###   ########.fr       */
+/*   Updated: 2024/12/09 11:25:26 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,15 +38,9 @@ public:
 
 	// getter
 	std::string getName(void) const;
-	int getHitPoints(void) const;
-	int getEnergyPoints(void) const;
-	int getAttackDamage(void) const;
 
 	// setter
 	void setName(std::string name);
-	void setHitPoints(int hit_points);
-	void setEnergyPoints(int energy_points);
-	void setAttackDamage(int attack_damage);
 };
 
 std::ostream &operator<<(std::ostream &o, DiamondTrap const &i);
