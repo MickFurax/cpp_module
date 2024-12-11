@@ -1,56 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cure.cpp                                           :+:      :+:    :+:   */
+/*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 10:21:24 by arabeman          #+#    #+#             */
-/*   Updated: 2024/12/11 19:34:58 by arabeman         ###   ########.fr       */
+/*   Updated: 2024/12/11 19:32:13 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cure.hpp"
+#include "Ice.hpp"
 
-Cure::Cure(): AMateria("cure")
+Ice::Ice(): AMateria("ice")
 {
-	std::cout << "Cure constructor called" << std::endl;
+	std::cout << "Ice constructor called" << std::endl;
 }
 
-Cure::Cure(const Cure &src): AMateria(src)
+Ice::Ice(const Ice &src): AMateria(src)
 {
-	std::cout << "Cure copy constructor called" << std::endl;
+	std::cout << "Ice copy constructor called" << std::endl;
 	*this = src;
 }
 
-Cure::~Cure()
+Ice::~Ice()
 {
-	std::cout << "Cure destructor called" << std::endl;
+	std::cout << "Ice destructor called" << std::endl;
 }
 
-Cure &Cure::operator=(Cure const &rhs)
+Ice &Ice::operator=(Ice const &rhs)
 {
-	std::cout << "Cure assignment operator called" << std::endl;
+	std::cout << "Ice assignment operator called" << std::endl;
 	if (this != &rhs)
 		(void)rhs;
 	return *this;
 }
 
-AMateria *Cure::clone() const
+AMateria *Ice::clone() const
 {
-	Cure *cure = new Cure();
-	return (cure);
+	Ice *ice = new Ice();
+	return (ice);
 }
 
-void Cure::use(ICharacter &target)
+void Ice::use(ICharacter &target)
 {
-	std::cout << "★ heals " << target.getName() << "'s wounds ★" << std::endl;
+	std::cout << "★ shoots an ice bolt at " << target.getName() << " ★" << std::endl;
 }
 
-std::ostream &operator<<(std::ostream &o, Cure const &i)
+std::ostream &operator<<(std::ostream &o, Ice const &i)
 {
 	(void)i;
-	o << "cure";
+	o << "ice";
 	return o;
 }
-

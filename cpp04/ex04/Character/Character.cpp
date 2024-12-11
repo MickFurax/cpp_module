@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/10 16:07:42 by arabeman          #+#    #+#             */
-/*   Updated: 2024/12/10 16:13:30 by arabeman         ###   ########.fr       */
+/*   Created: 2024/12/11 10:35:10 by arabeman          #+#    #+#             */
+/*   Updated: 2024/12/11 15:36:23 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,39 @@
 
 Character::Character() : name("???")
 {
+	for (int i = 0; i < 4; i++)
+		this->inventory[i] = NULL;
 	std::cout << "Character default constructor called" << std::endl;
 }
 
 Character::Character(std::string const &name) : name(name)
 {
+	for (int i = 0; i < 4; i++)
+		this->inventory[i] = NULL;
 	std::cout << "Character constructor called with name " << name << std::endl;
 }
 
 Character::Character(const Character &src)
 {
 	std::cout << "Character copy constructor called" << std::endl;
+	for (int i = 0; i < 4; i++)
+	{
+		if (src.inventory[i])
+		{
+			this->inventory[i] = src.inventory[i]->clone();
+			delete src.inventory[i];
+		}
+	}
 	*this = src;
 }
 
 Character::~Character()
 {
+	for (int i = 0; i < 4; i++)
+	{
+		if (this->inventory[i])
+			delete this->inventory[i];
+	}
 	std::cout << "Character destructor called" << std::endl;
 }
 
@@ -50,20 +67,29 @@ std::string const &Character::getName() const
 
 void Character::equip(AMateria *m)
 {
-	(void)m;
+	int i = 0;
+
+	while (i < 4 && this->inventory[i])
+		i++;
+	if (i < 4)
+	{
+		this->inventory[i] = m;
+		std::cout << getName() << " equipped at index " << i << std::endl;
+	}
 }
 
 void Character::unequip(int idx)
 {
-	(void)idx;
+	if (idx < 4)
+		this->inventory[idx] = NULL;
 }
 
 void Character::use(int idx, ICharacter &target)
 {
-	(void)idx;
 	(void)target;
+	if (idx < 4)
+		this->inventory[idx]->use(target);
 }
-
 
 std::ostream &operator<<(std::ostream &o, Character const &i)
 {

@@ -5,24 +5,36 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/10 08:13:26 by arabeman          #+#    #+#             */
-/*   Updated: 2024/12/10 16:09:57 by arabeman         ###   ########.fr       */
+/*   Created: 2024/12/11 09:46:15 by arabeman          #+#    #+#             */
+/*   Updated: 2024/12/11 19:47:18 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Character/Character.hpp"
-#include "Materia/AMateria.hpp"
+#include <iostream>
+#include <string>
+#include "MateriaSource/IMateriaSource.hpp"
+#include "MateriaSource/MateriaSource.hpp"
 #include "Materia/Ice/Ice.hpp"
 #include "Materia/Cure/Cure.hpp"
+#include "Character/ICharacter.hpp"
+#include "Character/Character.hpp"
 
 int main(void)
 {
-    Character* mccalister = new Character("MCCalister");
-    (void)mccalister;
-    Ice ice;
-    Cure cure;
-    ice.use(*mccalister);
-    cure.use(*mccalister);
-    delete mccalister;
+    IMateriaSource *src = new MateriaSource();
+    src->learnMateria(new Ice());
+    src->learnMateria(new Cure());
+    ICharacter *me = new Character("me");
+    AMateria *tmp;
+    tmp = src->createMateria("ice");
+    me->equip(tmp);
+    tmp = src->createMateria("cure");
+    me->equip(tmp);
+    ICharacter *bob = new Character("bob");
+    me->use(0, *bob);
+    me->use(1, *bob);
+    delete bob;
+    delete me;
+    delete src;
     return 0;
 }

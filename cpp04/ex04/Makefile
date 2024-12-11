@@ -1,10 +1,11 @@
 NAME = interfaceAndRecap
 CPP = c++
 CFLAGS = -Wall -Wextra -Werror
-SRC = Character/Character.cpp \
-	Materia/AMateria.cpp \
+SRC = Materia/AMateria.cpp \
 	Materia/Ice/Ice.cpp \
 	Materia/Cure/Cure.cpp \
+	MateriaSource/MateriaSource.cpp \
+	Character/Character.cpp \
 	main.cpp \
 
 all: $(NAME)

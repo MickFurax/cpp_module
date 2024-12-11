@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/10 16:05:57 by arabeman          #+#    #+#             */
-/*   Updated: 2024/12/10 16:12:51 by arabeman         ###   ########.fr       */
+/*   Created: 2024/12/11 10:35:27 by arabeman          #+#    #+#             */
+/*   Updated: 2024/12/11 11:18:56 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,16 @@
 #define CHARACTER_HPP
 
 #include "ICharacter.hpp"
+#include "../Materia/AMateria.hpp"
 #include <iostream>
 #include <string>
 
-class Character: public ICharacter
+class Character : public ICharacter
 {
 private:
 	std::string name;
+	AMateria *inventory[4];
+
 public:
 	Character();
 	Character(std::string const &name);
@@ -33,7 +36,6 @@ public:
 	void equip(AMateria *m);
 	void unequip(int idx);
 	void use(int idx, ICharacter &target);
-
 };
 
 std::ostream &operator<<(std::ostream &o, Character const &i);

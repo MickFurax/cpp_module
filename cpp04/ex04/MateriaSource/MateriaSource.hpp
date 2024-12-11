@@ -1,35 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cure.hpp                                           :+:      :+:    :+:   */
+/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/11 10:22:28 by arabeman          #+#    #+#             */
-/*   Updated: 2024/12/11 14:41:10 by arabeman         ###   ########.fr       */
+/*   Created: 2024/12/11 14:58:17 by arabeman          #+#    #+#             */
+/*   Updated: 2024/12/11 15:43:25 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CURE_HPP
-#define CURE_HPP
+#ifndef MATERIASOURCE_HPP
+#define MATERIASOURCE_HPP
 
-#include "../AMateria.hpp"
+#include "IMateriaSource.hpp"
 #include <iostream>
 #include <string>
 
-class Cure : public AMateria
+class MateriaSource: public IMateriaSource
 {
 private:
+	AMateria *materia[4];
 public:
-	Cure();
-	Cure(Cure const &src);
-	~Cure();
-	Cure &operator=(Cure const &rhs);
+	MateriaSource();
+	MateriaSource(MateriaSource const &src);
+	~MateriaSource();
+	MateriaSource &operator=(MateriaSource const &rhs);
 
-	AMateria *clone() const;
-	void use(ICharacter &target);
+	void learnMateria(AMateria *m);
+	AMateria *createMateria(std::string const &type);
+
 };
 
-std::ostream &operator<<(std::ostream &o, Cure const &i);
+std::ostream &operator<<(std::ostream &o, MateriaSource const &i);
 
 #endif
