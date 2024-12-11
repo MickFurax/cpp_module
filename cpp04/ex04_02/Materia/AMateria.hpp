@@ -1,41 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AAnimal.hpp                                        :+:      :+:    :+:   */
+/*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/03 09:39:08 by arabeman          #+#    #+#             */
-/*   Updated: 2024/12/10 09:05:29 by arabeman         ###   ########.fr       */
+/*   Created: 2024/12/11 09:54:38 by arabeman          #+#    #+#             */
+/*   Updated: 2024/12/11 15:37:09 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AANIMAL_HPP
-#define AANIMAL_HPP
+#ifndef AMATERIA_HPP
+#define AMATERIA_HPP
 
-#include "../Brain/Brain.hpp"
+#include "../Character/ICharacter.hpp"
 #include <iostream>
 #include <string>
 
-class AAnimal
+class AMateria
 {
-private:
 protected:
 	std::string type;
 
 public:
-	AAnimal();
-	AAnimal(std::string type);
-	AAnimal(AAnimal const &src);
-	virtual ~AAnimal();
+	AMateria();
+	AMateria(std::string const &type);
+	AMateria(AMateria const &src);
+	virtual ~AMateria();
+	AMateria &operator=(AMateria const &rhs);
 
-	virtual void makeSound() const = 0;
-
-	std::string getType() const;
-
-	AAnimal &operator=(AAnimal const &rhs);
+	std::string const &getType() const;
+	void setType(std::string const &type);
+	virtual AMateria *clone() const = 0;
+	virtual void use(ICharacter &target);
 };
 
-std::ostream &operator<<(std::ostream &o, AAnimal const &i);
+std::ostream &operator<<(std::ostream &o, AMateria const &i);
 
 #endif

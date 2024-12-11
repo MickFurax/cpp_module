@@ -1,41 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AAnimal.hpp                                        :+:      :+:    :+:   */
+/*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/03 09:39:08 by arabeman          #+#    #+#             */
-/*   Updated: 2024/12/10 09:05:29 by arabeman         ###   ########.fr       */
+/*   Created: 2024/12/10 16:05:57 by arabeman          #+#    #+#             */
+/*   Updated: 2024/12/10 16:12:51 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AANIMAL_HPP
-#define AANIMAL_HPP
+#ifndef CHARACTER_HPP
+#define CHARACTER_HPP
 
-#include "../Brain/Brain.hpp"
+#include "ICharacter.hpp"
 #include <iostream>
 #include <string>
 
-class AAnimal
+class Character: public ICharacter
 {
 private:
-protected:
-	std::string type;
-
+	std::string name;
 public:
-	AAnimal();
-	AAnimal(std::string type);
-	AAnimal(AAnimal const &src);
-	virtual ~AAnimal();
+	Character();
+	Character(std::string const &name);
+	Character(Character const &src);
+	~Character();
 
-	virtual void makeSound() const = 0;
+	Character &operator=(Character const &rhs);
 
-	std::string getType() const;
+	std::string const &getName() const;
+	void equip(AMateria *m);
+	void unequip(int idx);
+	void use(int idx, ICharacter &target);
 
-	AAnimal &operator=(AAnimal const &rhs);
 };
 
-std::ostream &operator<<(std::ostream &o, AAnimal const &i);
+std::ostream &operator<<(std::ostream &o, Character const &i);
 
 #endif

@@ -1,41 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AAnimal.hpp                                        :+:      :+:    :+:   */
+/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/03 09:39:08 by arabeman          #+#    #+#             */
-/*   Updated: 2024/12/10 09:05:29 by arabeman         ###   ########.fr       */
+/*   Created: 2024/12/11 14:58:17 by arabeman          #+#    #+#             */
+/*   Updated: 2024/12/11 15:43:25 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AANIMAL_HPP
-#define AANIMAL_HPP
+#ifndef MATERIASOURCE_HPP
+#define MATERIASOURCE_HPP
 
-#include "../Brain/Brain.hpp"
+#include "IMateriaSource.hpp"
 #include <iostream>
 #include <string>
 
-class AAnimal
+class MateriaSource: public IMateriaSource
 {
 private:
-protected:
-	std::string type;
-
+	AMateria *materia[4];
 public:
-	AAnimal();
-	AAnimal(std::string type);
-	AAnimal(AAnimal const &src);
-	virtual ~AAnimal();
+	MateriaSource();
+	MateriaSource(MateriaSource const &src);
+	~MateriaSource();
+	MateriaSource &operator=(MateriaSource const &rhs);
 
-	virtual void makeSound() const = 0;
+	void learnMateria(AMateria *m);
+	AMateria *createMateria(std::string const &type);
 
-	std::string getType() const;
-
-	AAnimal &operator=(AAnimal const &rhs);
 };
 
-std::ostream &operator<<(std::ostream &o, AAnimal const &i);
+std::ostream &operator<<(std::ostream &o, MateriaSource const &i);
 
 #endif

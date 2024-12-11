@@ -1,41 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AAnimal.hpp                                        :+:      :+:    :+:   */
+/*   ICharacter.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/03 09:39:08 by arabeman          #+#    #+#             */
-/*   Updated: 2024/12/10 09:05:29 by arabeman         ###   ########.fr       */
+/*   Created: 2024/12/10 09:05:40 by arabeman          #+#    #+#             */
+/*   Updated: 2024/12/10 16:07:10 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AANIMAL_HPP
-#define AANIMAL_HPP
+#ifndef ICHARACTER_HPP
+#define ICHARACTER_HPP
 
-#include "../Brain/Brain.hpp"
+#include "../Materia/AMateria.hpp"
 #include <iostream>
 #include <string>
 
-class AAnimal
+class AMateria;
+
+class ICharacter
 {
-private:
-protected:
-	std::string type;
-
 public:
-	AAnimal();
-	AAnimal(std::string type);
-	AAnimal(AAnimal const &src);
-	virtual ~AAnimal();
-
-	virtual void makeSound() const = 0;
-
-	std::string getType() const;
-
-	AAnimal &operator=(AAnimal const &rhs);
+	~ICharacter() {};
+	virtual std::string const &getName() const = 0;
+	virtual void equip(AMateria *m) = 0;
+	virtual void unequip(int idx) = 0;
+	virtual void use(int idx, ICharacter &target) = 0;
 };
-
-std::ostream &operator<<(std::ostream &o, AAnimal const &i);
 
 #endif

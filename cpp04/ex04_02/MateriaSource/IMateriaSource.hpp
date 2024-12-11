@@ -1,41 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AAnimal.hpp                                        :+:      :+:    :+:   */
+/*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/03 09:39:08 by arabeman          #+#    #+#             */
-/*   Updated: 2024/12/10 09:05:29 by arabeman         ###   ########.fr       */
+/*   Created: 2024/12/11 14:56:15 by arabeman          #+#    #+#             */
+/*   Updated: 2024/12/11 15:31:38 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AANIMAL_HPP
-#define AANIMAL_HPP
+#ifndef IMATERIASOURCE_HPP
+#define IMATERIASOURCE_HPP
 
-#include "../Brain/Brain.hpp"
 #include <iostream>
 #include <string>
+#include "../Materia/AMateria.hpp"
 
-class AAnimal
+class IMateriaSource
 {
-private:
-protected:
-	std::string type;
-
 public:
-	AAnimal();
-	AAnimal(std::string type);
-	AAnimal(AAnimal const &src);
-	virtual ~AAnimal();
-
-	virtual void makeSound() const = 0;
-
-	std::string getType() const;
-
-	AAnimal &operator=(AAnimal const &rhs);
+    virtual ~IMateriaSource() {}
+    virtual void learnMateria(AMateria *) = 0;
+    virtual AMateria *createMateria(std::string const &type) = 0;
 };
-
-std::ostream &operator<<(std::ostream &o, AAnimal const &i);
 
 #endif
