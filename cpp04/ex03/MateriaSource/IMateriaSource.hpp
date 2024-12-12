@@ -1,38 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.cpp                                          :+:      :+:    :+:   */
+/*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/09 17:43:56 by arabeman          #+#    #+#             */
-/*   Updated: 2024/12/12 09:48:42 by arabeman         ###   ########.fr       */
+/*   Created: 2024/12/11 14:56:15 by arabeman          #+#    #+#             */
+/*   Updated: 2024/12/12 09:50:34 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Brain.hpp"
+#ifndef IMATERIASOURCE_HPP
+#define IMATERIASOURCE_HPP
 
-Brain::Brain()
-{
-	std::cout << "Brain constructor called" << std::endl;
-}
+#include <iostream>
+#include <string>
+#include "../Materia/AMateria.hpp"
 
-Brain::Brain(const Brain &src)
+class IMateriaSource
 {
-	std::cout << "Brain copy constructor called" << std::endl;
-	*this = src;
-}
+public:
+    virtual ~IMateriaSource() {}
+    virtual void learnMateria(AMateria *) = 0;
+    virtual AMateria *createMateria(std::string const &type) = 0;
+};
 
-Brain::~Brain()
-{
-	std::cout << "Brain destructor called" << std::endl;
-}
-
-Brain &Brain::operator=(Brain const &rhs)
-{
-	if (this != &rhs)
-	{
-		// this->_value = rhs.getValue();
-	}
-	return *this;
-}
+#endif

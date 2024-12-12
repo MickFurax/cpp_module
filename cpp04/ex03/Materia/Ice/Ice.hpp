@@ -1,38 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.cpp                                          :+:      :+:    :+:   */
+/*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/09 17:43:56 by arabeman          #+#    #+#             */
-/*   Updated: 2024/12/12 09:48:42 by arabeman         ###   ########.fr       */
+/*   Created: 2024/12/11 10:22:28 by arabeman          #+#    #+#             */
+/*   Updated: 2024/12/12 09:50:51 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Brain.hpp"
+#ifndef ICE_HPP
+#define ICE_HPP
 
-Brain::Brain()
-{
-	std::cout << "Brain constructor called" << std::endl;
-}
+#include "../AMateria.hpp"
+#include <iostream>
+#include <string>
 
-Brain::Brain(const Brain &src)
+class Ice : public AMateria
 {
-	std::cout << "Brain copy constructor called" << std::endl;
-	*this = src;
-}
+public:
+	Ice();
+	Ice(Ice const &src);
+	~Ice();
+	Ice &operator=(Ice const &rhs);
 
-Brain::~Brain()
-{
-	std::cout << "Brain destructor called" << std::endl;
-}
+	AMateria *clone() const;
+	void use(ICharacter &target);
+};
 
-Brain &Brain::operator=(Brain const &rhs)
-{
-	if (this != &rhs)
-	{
-		// this->_value = rhs.getValue();
-	}
-	return *this;
-}
+#endif

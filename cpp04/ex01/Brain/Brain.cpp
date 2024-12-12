@@ -6,7 +6,7 @@
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 17:43:56 by arabeman          #+#    #+#             */
-/*   Updated: 2024/12/10 07:06:11 by arabeman         ###   ########.fr       */
+/*   Updated: 2024/12/12 09:48:34 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,4 @@ Brain &Brain::operator=(Brain const &rhs)
 		// this->_value = rhs.getValue();
 	}
 	return *this;
-}
-
-std::ostream &operator<<(std::ostream &o, Brain const &i)
-{
-	(void)i;
-	// o << "Value = " << i.getValue();
-	return o;
 }
