@@ -6,7 +6,7 @@
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 09:46:15 by arabeman          #+#    #+#             */
-/*   Updated: 2024/12/12 10:03:12 by arabeman         ###   ########.fr       */
+/*   Updated: 2024/12/16 19:17:00 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,13 @@ int main(void)
     delete bob;
     delete me;
     delete src;
+
+    std::cout << std::endl;
+    std::cout << "My test:" << std::endl;
+    std::cout << std::endl;
+
+    MateriaSource ms;
+    ms.learnMateria(new Ice());
+    MateriaSource ms2 = ms;
     return 0;
 }

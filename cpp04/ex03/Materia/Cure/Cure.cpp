@@ -6,7 +6,7 @@
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 10:21:24 by arabeman          #+#    #+#             */
-/*   Updated: 2024/12/12 14:37:54 by arabeman         ###   ########.fr       */
+/*   Updated: 2024/12/16 19:08:13 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ Cure &Cure::operator=(Cure const &rhs)
 
 AMateria *Cure::clone() const
 {
+	std::cout << "Cure clone called" << std::endl;
 	Cure *cure = new Cure();
 	return (cure);
 }

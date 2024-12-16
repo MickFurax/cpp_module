@@ -6,7 +6,7 @@
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 09:54:38 by arabeman          #+#    #+#             */
-/*   Updated: 2024/12/11 15:37:09 by arabeman         ###   ########.fr       */
+/*   Updated: 2024/12/16 18:47:14 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,5 @@ public:
 	virtual AMateria *clone() const = 0;
 	virtual void use(ICharacter &target);
 };
-
-std::ostream &operator<<(std::ostream &o, AMateria const &i);
 
 #endif

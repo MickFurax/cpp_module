@@ -6,7 +6,7 @@
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 09:54:30 by arabeman          #+#    #+#             */
-/*   Updated: 2024/12/12 10:08:04 by arabeman         ###   ########.fr       */
+/*   Updated: 2024/12/16 19:03:41 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,5 @@ void AMateria::setType(std::string const &type)
 
 void AMateria::use(ICharacter &target)
 {
-	(void)target;
-}
-
-std::ostream &operator<<(std::ostream &o, AMateria const &i)
-{
-	return o;
+	std::cout << "Materia is used on " << target.getName() << std::endl;
 }
