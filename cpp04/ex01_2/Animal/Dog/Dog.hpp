@@ -1,37 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/11 14:58:17 by arabeman          #+#    #+#             */
-/*   Updated: 2024/12/11 15:43:25 by arabeman         ###   ########.fr       */
+/*   Created: 2024/12/03 09:41:48 by arabeman          #+#    #+#             */
+/*   Updated: 2024/12/14 10:17:59 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MATERIASOURCE_HPP
-#define MATERIASOURCE_HPP
+#ifndef DOG_HPP
+#define DOG_HPP
 
-#include "IMateriaSource.hpp"
+#include "../Animal.hpp"
+#include "../../Brain/Brain.hpp"
 #include <iostream>
 #include <string>
 
-class MateriaSource: public IMateriaSource
+class Dog : public Animal
 {
 private:
-	AMateria *materia[4];
+	Brain *brain;
 public:
-	MateriaSource();
-	MateriaSource(MateriaSource const &src);
-	~MateriaSource();
-	MateriaSource &operator=(MateriaSource const &rhs);
+	Dog();
+	Dog(Dog const &src);
+	~Dog();
 
-	void learnMateria(AMateria *m);
-	AMateria *createMateria(std::string const &type);
+	void makeSound() const;
 
+	Dog &operator=(Dog const &rhs);
 };
-
-std::ostream &operator<<(std::ostream &o, MateriaSource const &i);
 
 #endif

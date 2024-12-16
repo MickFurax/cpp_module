@@ -1,32 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ICharacter.hpp                                     :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/11 10:04:26 by arabeman          #+#    #+#             */
-/*   Updated: 2024/12/11 11:18:51 by arabeman         ###   ########.fr       */
+/*   Created: 2024/12/03 09:37:34 by arabeman          #+#    #+#             */
+/*   Updated: 2024/12/13 18:25:18 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ICHARACTER_HPP
-#define ICHARACTER_HPP
+#include "Animal/Animal.hpp"
+#include "Animal/Cat/Cat.hpp"
+#include "Animal/Dog/Dog.hpp"
+#include "Brain/Brain.hpp"
 
-#include <iostream>
-#include <string>
-// #include "../Materia/AMateria.hpp"
-
-class AMateria;
-
-class ICharacter
+int main()
 {
-public:
-    virtual ~ICharacter() {}
-    virtual std::string const &getName() const = 0;
-    virtual void equip(AMateria *m) = 0;
-    virtual void unequip(int idx) = 0;
-    virtual void use(int idx, ICharacter &target) = 0;
-};
-
-#endif
+    Brain brain;
+    brain.setIdeas(0, "I am a cat");
+    std::cout << brain.getIdeas(0) << std::endl;
+    return 0;
+}

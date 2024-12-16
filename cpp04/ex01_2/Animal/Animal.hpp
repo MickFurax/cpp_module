@@ -1,28 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/11 14:56:15 by arabeman          #+#    #+#             */
-/*   Updated: 2024/12/11 15:31:38 by arabeman         ###   ########.fr       */
+/*   Created: 2024/12/03 09:39:08 by arabeman          #+#    #+#             */
+/*   Updated: 2024/12/03 11:32:42 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef IMATERIASOURCE_HPP
-#define IMATERIASOURCE_HPP
+#ifndef ANIMAL_HPP
+#define ANIMAL_HPP
 
 #include <iostream>
 #include <string>
-#include "../Materia/AMateria.hpp"
 
-class IMateriaSource
+class Animal
 {
+private:
+protected:
+	std::string type;
+
 public:
-    virtual ~IMateriaSource() {}
-    virtual void learnMateria(AMateria *) = 0;
-    virtual AMateria *createMateria(std::string const &type) = 0;
+	Animal();
+	Animal(std::string type);
+	Animal(Animal const &src);
+	virtual ~Animal();
+
+	virtual void makeSound() const;
+
+	std::string getType() const;
+
+	Animal &operator=(Animal const &rhs);
 };
+
+std::ostream &operator<<(std::ostream &o, Animal const &i);
 
 #endif

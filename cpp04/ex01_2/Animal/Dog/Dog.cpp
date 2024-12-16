@@ -1,42 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/03 09:40:47 by arabeman          #+#    #+#             */
-/*   Updated: 2024/12/13 17:26:03 by arabeman         ###   ########.fr       */
+/*   Created: 2024/12/03 09:41:42 by arabeman          #+#    #+#             */
+/*   Updated: 2024/12/13 18:26:32 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "Dog.hpp"
 
-Cat::Cat() : Animal("Cat")
+Dog::Dog(): Animal("Dog")
 {
-	std::cout << "Cat constructor called" << std::endl;
+	std::cout << "Dog constructor called" << std::endl;
 }
 
-Cat::Cat(const Cat &src)
+Dog::Dog(const Dog &src): Animal(src)
 {
-	std::cout << "Cat copy constructor called" << std::endl;
+	std::cout << "Dog copy constructor called" << std::endl;
 	*this = src;
 }
 
-Cat::~Cat()
+Dog::~Dog()
 {
-	std::cout << "Cat destructor called" << std::endl;
+	std::cout << "Dog destructor called" << std::endl;
 }
 
-Cat &Cat::operator=(Cat const &rhs)
+Dog &Dog::operator=(Dog const &rhs)
 {
-	std::cout << "Cat assignment operator called" << std::endl;
+	std::cout << "Dog assignment operator called" << std::endl;
 	if (this != &rhs)
 		this->type = rhs.getType();
 	return *this;
 }
 
-void Cat::makeSound() const
+void Dog::makeSound() const
 {
-	std::cout << "Meeow" << std::endl;
+	std::cout << "Wooof" << std::endl;
 }

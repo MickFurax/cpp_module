@@ -1,35 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Ice.hpp                                            :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/11 10:22:28 by arabeman          #+#    #+#             */
-/*   Updated: 2024/12/11 10:33:39 by arabeman         ###   ########.fr       */
+/*   Created: 2024/12/03 09:40:58 by arabeman          #+#    #+#             */
+/*   Updated: 2024/12/13 18:33:21 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ICE_HPP
-#define ICE_HPP
+#ifndef CAT_HPP
+#define CAT_HPP
 
-#include "../AMateria.hpp"
+#include "../Animal.hpp"
 #include <iostream>
 #include <string>
 
-class Ice : public AMateria
+class Cat : public Animal
 {
 private:
 public:
-	Ice();
-	Ice(Ice const &src);
-	~Ice();
-	Ice &operator=(Ice const &rhs);
+	Cat();
+	Cat(Cat const &src);
+	~Cat();
 
-	AMateria *clone() const;
-	void use(ICharacter &target);
+	void makeSound() const;
+
+	Cat &operator=(Cat const &rhs);
 };
-
-std::ostream &operator<<(std::ostream &o, Ice const &i);
 
 #endif

@@ -1,11 +1,10 @@
-NAME = interfaceAndRecap
+NAME = iDontWantToSetTheWorldOnFire
 CPP = c++
 CFLAGS = -Wall -Wextra -Werror
-SRC = Materia/AMateria.cpp \
-	Materia/Ice/Ice.cpp \
-	Materia/Cure/Cure.cpp \
-	MateriaSource/MateriaSource.cpp \
-	Character/Character.cpp \
+SRC = Brain/Brain.cpp \
+	Animal/Animal.cpp \
+	Animal/Cat/Cat.cpp \
+	Animal/Dog/Dog.cpp \
 	main.cpp \
 
 all: $(NAME)

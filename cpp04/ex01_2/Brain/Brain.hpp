@@ -1,35 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cure.hpp                                           :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/11 10:22:28 by arabeman          #+#    #+#             */
-/*   Updated: 2024/12/11 14:41:10 by arabeman         ###   ########.fr       */
+/*   Created: 2024/12/13 17:18:31 by arabeman          #+#    #+#             */
+/*   Updated: 2024/12/13 18:22:08 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CURE_HPP
-#define CURE_HPP
+#ifndef BRAIN_HPP
+#define BRAIN_HPP
 
-#include "../AMateria.hpp"
 #include <iostream>
 #include <string>
 
-class Cure : public AMateria
+class Brain
 {
 private:
+	std::string ideas[100];
+
 public:
-	Cure();
-	Cure(Cure const &src);
-	~Cure();
-	Cure &operator=(Cure const &rhs);
+	Brain();
+	Brain(Brain const &src);
+	~Brain();
 
-	AMateria *clone() const;
-	void use(ICharacter &target);
+	Brain &operator=(Brain const &rhs);
+
+	// getter and setter
+	std::string getIdeas(int index) const;
+	void setIdeas(int index, std::string idea);
 };
-
-std::ostream &operator<<(std::ostream &o, Cure const &i);
 
 #endif

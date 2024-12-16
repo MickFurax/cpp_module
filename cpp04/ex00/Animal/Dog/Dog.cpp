@@ -6,7 +6,7 @@
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 09:41:42 by arabeman          #+#    #+#             */
-/*   Updated: 2024/12/03 10:50:34 by arabeman         ###   ########.fr       */
+/*   Updated: 2024/12/13 17:25:29 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,3 @@ void Dog::makeSound() const
 	std::cout << "Wooof" << std::endl;
 }
 
-std::ostream &operator<<(std::ostream &o, Dog const &i)
-{
-	o << "Value = " << i.getType();
-	return o;
-}
