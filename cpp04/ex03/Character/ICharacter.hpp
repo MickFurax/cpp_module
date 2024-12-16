@@ -1,38 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.cpp                                          :+:      :+:    :+:   */
+/*   ICharacter.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/09 17:43:56 by arabeman          #+#    #+#             */
-/*   Updated: 2024/12/16 10:23:54 by arabeman         ###   ########.fr       */
+/*   Created: 2024/12/11 10:04:26 by arabeman          #+#    #+#             */
+/*   Updated: 2024/12/11 11:18:51 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Brain.hpp"
+#ifndef ICHARACTER_HPP
+#define ICHARACTER_HPP
 
-Brain::Brain()
-{
-	std::cout << "Brain constructor called" << std::endl;
-}
+#include <iostream>
+#include <string>
+// #include "../Materia/AMateria.hpp"
 
-Brain::Brain(const Brain &src)
-{
-	std::cout << "Brain copy constructor called" << std::endl;
-	*this = src;
-}
+class AMateria;
 
-Brain::~Brain()
+class ICharacter
 {
-	std::cout << "Brain destructor called" << std::endl;
-}
+public:
+    virtual ~ICharacter() {}
+    virtual std::string const &getName() const = 0;
+    virtual void equip(AMateria *m) = 0;
+    virtual void unequip(int idx) = 0;
+    virtual void use(int idx, ICharacter &target) = 0;
+};
 
-Brain &Brain::operator=(Brain const &rhs)
-{
-	if (this != &rhs)
-	{
-		// this->_value = rhs.getValue();
-	}
-	return *this;
-}
+#endif

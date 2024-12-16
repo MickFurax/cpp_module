@@ -1,38 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Brain.cpp                                          :+:      :+:    :+:   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/09 17:43:56 by arabeman          #+#    #+#             */
-/*   Updated: 2024/12/16 10:23:54 by arabeman         ###   ########.fr       */
+/*   Created: 2024/12/11 10:22:28 by arabeman          #+#    #+#             */
+/*   Updated: 2024/12/12 09:50:53 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Brain.hpp"
+#ifndef CURE_HPP
+#define CURE_HPP
 
-Brain::Brain()
-{
-	std::cout << "Brain constructor called" << std::endl;
-}
+#include "../AMateria.hpp"
+#include <iostream>
+#include <string>
 
-Brain::Brain(const Brain &src)
+class Cure : public AMateria
 {
-	std::cout << "Brain copy constructor called" << std::endl;
-	*this = src;
-}
+public:
+	Cure();
+	Cure(Cure const &src);
+	~Cure();
+	Cure &operator=(Cure const &rhs);
 
-Brain::~Brain()
-{
-	std::cout << "Brain destructor called" << std::endl;
-}
+	AMateria *clone() const;
+	void use(ICharacter &target);
+};
 
-Brain &Brain::operator=(Brain const &rhs)
-{
-	if (this != &rhs)
-	{
-		// this->_value = rhs.getValue();
-	}
-	return *this;
-}
+#endif
