@@ -6,7 +6,7 @@
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 10:21:24 by arabeman          #+#    #+#             */
-/*   Updated: 2024/12/16 19:08:13 by arabeman         ###   ########.fr       */
+/*   Updated: 2024/12/17 11:05:02 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ Cure::Cure(): AMateria("cure")
 Cure::Cure(const Cure &src): AMateria(src)
 {
 	std::cout << "Cure copy constructor called" << std::endl;
-	*this = src;
 }
 
 Cure::~Cure()

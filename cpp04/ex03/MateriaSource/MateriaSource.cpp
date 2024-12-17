@@ -6,7 +6,7 @@
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 14:58:04 by arabeman          #+#    #+#             */
-/*   Updated: 2024/12/16 19:16:54 by arabeman         ###   ########.fr       */
+/*   Updated: 2024/12/17 11:07:13 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,12 @@ MateriaSource::MateriaSource()
 
 MateriaSource::MateriaSource(const MateriaSource &src)
 {
+	for (int i = 0; i < 4; i++)
+	{
+		if (src.materia[i])
+			this->materia[i] = src.materia[i]->clone();
+	}
 	std::cout << "MateriaSource copy constructor called" << std::endl;
-	*this = src;
 }
 
 MateriaSource::~MateriaSource()

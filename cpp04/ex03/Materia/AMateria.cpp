@@ -6,7 +6,7 @@
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 09:54:30 by arabeman          #+#    #+#             */
-/*   Updated: 2024/12/16 19:03:41 by arabeman         ###   ########.fr       */
+/*   Updated: 2024/12/17 11:05:31 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,9 @@ AMateria::AMateria(std::string const &type)
 	this->type = type;
 }
 
-AMateria::AMateria(const AMateria &src)
+AMateria::AMateria(const AMateria &src) : type(src.type)
 {
 	std::cout << "Materia copy constructor called" << std::endl;
-	*this = src;
 }
 
 AMateria::~AMateria()

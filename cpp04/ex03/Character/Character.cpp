@@ -6,7 +6,7 @@
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 10:35:10 by arabeman          #+#    #+#             */
-/*   Updated: 2024/12/16 19:03:54 by arabeman         ###   ########.fr       */
+/*   Updated: 2024/12/17 11:37:31 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,10 @@ Character::Character(const Character &src)
 	for (int i = 0; i < 4; i++)
 	{
 		if (src.inventory[i])
-		{
 			this->inventory[i] = src.inventory[i]->clone();
-			delete src.inventory[i];
-		}
+		else
+			this->inventory[i] = NULL;
 	}
-	*this = src;
 }
 
 Character::~Character()
@@ -54,7 +52,19 @@ Character &Character::operator=(Character const &rhs)
 {
 	std::cout << "Character assignment operator called" << std::endl;
 	if (this != &rhs)
+	{
 		this->name = rhs.getName();
+		for (int i = 0; i < 4; i++)
+		{
+			if (this->inventory[i])
+			{
+				delete this->inventory[i];
+				this->inventory[i] = rhs.inventory[i]->clone();
+			}
+			else
+				this->inventory[i] = NULL;
+		}
+	}
 	return *this;
 }
 
