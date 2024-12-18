@@ -6,14 +6,13 @@
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 09:39:08 by arabeman          #+#    #+#             */
-/*   Updated: 2024/12/10 07:07:24 by arabeman         ###   ########.fr       */
+/*   Updated: 2024/12/03 11:32:42 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ANIMAL_HPP
 #define ANIMAL_HPP
 
-#include "../Brain/Brain.hpp"
 #include <iostream>
 #include <string>
 

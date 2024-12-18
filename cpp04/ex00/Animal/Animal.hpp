@@ -6,7 +6,7 @@
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 09:39:08 by arabeman          #+#    #+#             */
-/*   Updated: 2024/12/03 11:32:42 by arabeman         ###   ########.fr       */
+/*   Updated: 2024/12/18 15:14:26 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,5 @@ public:
 
 	Animal &operator=(Animal const &rhs);
 };
-
-std::ostream &operator<<(std::ostream &o, Animal const &i);
 
 #endif

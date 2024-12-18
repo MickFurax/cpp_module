@@ -6,7 +6,7 @@
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 10:35:10 by arabeman          #+#    #+#             */
-/*   Updated: 2024/12/17 11:37:31 by arabeman         ###   ########.fr       */
+/*   Updated: 2024/12/17 15:13:08 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Character::Character(std::string const &name) : name(name)
 	std::cout << "Character constructor called with name " << name << std::endl;
 }
 
-Character::Character(const Character &src)
+Character::Character(const Character &src) : name(src.name)
 {
 	std::cout << "Character copy constructor called" << std::endl;
 	for (int i = 0; i < 4; i++)

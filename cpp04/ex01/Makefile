@@ -1,12 +1,10 @@
 NAME = iDontWantToSetTheWorldOnFire
 CPP = c++
 CFLAGS = -Wall -Wextra -Werror
-SRC = Animal/Animal.cpp \
+SRC = Brain/Brain.cpp \
+	Animal/Animal.cpp \
 	Animal/Cat/Cat.cpp \
 	Animal/Dog/Dog.cpp \
-	Animal/WrongAnimal.cpp \
-	Animal/WrongCat/WrongCat.cpp \
-	Brain/Brain.cpp \
 	main.cpp \
 
 all: $(NAME)

@@ -4,8 +4,6 @@ CFLAGS = -Wall -Wextra -Werror
 SRC = Animal/AAnimal.cpp \
 	Animal/Cat/Cat.cpp \
 	Animal/Dog/Dog.cpp \
-	Animal/WrongAnimal.cpp \
-	Animal/WrongCat/WrongCat.cpp \
 	Brain/Brain.cpp \
 	main.cpp \
 

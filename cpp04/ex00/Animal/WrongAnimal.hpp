@@ -6,7 +6,7 @@
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 17:29:55 by arabeman          #+#    #+#             */
-/*   Updated: 2024/12/09 17:34:12 by arabeman         ###   ########.fr       */
+/*   Updated: 2024/12/18 15:15:02 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,5 @@ public:
 
 	WrongAnimal &operator=(WrongAnimal const &rhs);
 };
-
-std::ostream &operator<<(std::ostream &o, WrongAnimal const &i);
 
 #endif

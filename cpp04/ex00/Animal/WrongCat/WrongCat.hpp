@@ -6,7 +6,7 @@
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 17:32:10 by arabeman          #+#    #+#             */
-/*   Updated: 2024/12/09 17:34:15 by arabeman         ###   ########.fr       */
+/*   Updated: 2024/12/18 15:15:12 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,5 @@ public:
 
 	WrongCat &operator=(WrongCat const &rhs);
 };
-
-std::ostream &operator<<(std::ostream &o, WrongCat const &i);
 
 #endif

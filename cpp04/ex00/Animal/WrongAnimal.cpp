@@ -6,7 +6,7 @@
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 17:30:41 by arabeman          #+#    #+#             */
-/*   Updated: 2024/12/09 17:31:27 by arabeman         ###   ########.fr       */
+/*   Updated: 2024/12/18 15:14:57 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,9 @@ WrongAnimal::WrongAnimal(std::string type) : type(type)
 	std::cout << "WrongAnimal constructor called with type " << type << std::endl;
 }
 
-WrongAnimal::WrongAnimal(const WrongAnimal &src)
+WrongAnimal::WrongAnimal(const WrongAnimal &src) : type(src.type)
 {
 	std::cout << "WrongAnimal copy constructor called" << std::endl;
-	*this = src;
 }
 
 WrongAnimal::~WrongAnimal()
@@ -48,10 +47,4 @@ void WrongAnimal::makeSound() const
 std::string WrongAnimal::getType() const
 {
 	return this->type;
-}
-
-std::ostream &operator<<(std::ostream &o, WrongAnimal const &i)
-{
-	o << "Value = " << i.getType();
-	return o;
 }

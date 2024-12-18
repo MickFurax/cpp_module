@@ -6,36 +6,42 @@
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 09:41:42 by arabeman          #+#    #+#             */
-/*   Updated: 2024/12/10 07:10:47 by arabeman         ###   ########.fr       */
+/*   Updated: 2024/12/17 11:03:54 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
-Dog::Dog(): Animal("Dog")
+Dog::Dog() : Animal("Dog")
 {
 	brain = new Brain();
 	std::cout << "Dog constructor called" << std::endl;
 }
 
-Dog::Dog(const Dog &src)
+Dog::Dog(const Dog &src) : Animal(src)
 {
-	brain = new Brain();
 	std::cout << "Dog copy constructor called" << std::endl;
-	*this = src;
+	this->brain = new Brain(*src.brain);
 }
 
 Dog::~Dog()
 {
-	delete brain;
 	std::cout << "Dog destructor called" << std::endl;
+	delete this->brain;
 }
 
 Dog &Dog::operator=(Dog const &rhs)
 {
 	std::cout << "Dog assignment operator called" << std::endl;
 	if (this != &rhs)
+	{
 		this->type = rhs.getType();
+		if (brain)
+		{
+			delete this->brain;
+			this->brain = new Brain(*rhs.brain);
+		}
+	}
 	return *this;
 }
 
@@ -44,8 +50,16 @@ void Dog::makeSound() const
 	std::cout << "Wooof" << std::endl;
 }
 
-std::ostream &operator<<(std::ostream &o, Dog const &i)
+void Dog::setBrain(Brain *brain)
 {
-	o << "Value = " << i.getType();
-	return o;
+	if (brain)
+	{
+		delete this->brain;
+		this->brain = new Brain(*brain);
+	}
+}
+
+Brain *Dog::getBrain() const
+{
+	return brain;
 }

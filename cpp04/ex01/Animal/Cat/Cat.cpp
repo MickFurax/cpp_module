@@ -6,7 +6,7 @@
 /*   By: arabeman <arabeman@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 09:40:47 by arabeman          #+#    #+#             */
-/*   Updated: 2024/12/10 07:09:39 by arabeman         ###   ########.fr       */
+/*   Updated: 2024/12/17 10:55:03 by arabeman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,34 +18,50 @@ Cat::Cat() : Animal("Cat")
 	std::cout << "Cat constructor called" << std::endl;
 }
 
-Cat::Cat(const Cat &src)
+Cat::Cat(const Cat &src) : Animal(src)
 {
-	brain = new Brain();
 	std::cout << "Cat copy constructor called" << std::endl;
-	*this = src;
+	this->brain = new Brain(*src.brain);
 }
 
 Cat::~Cat()
 {
-	delete brain;
 	std::cout << "Cat destructor called" << std::endl;
+	delete this->brain;
 }
 
 Cat &Cat::operator=(Cat const &rhs)
 {
 	std::cout << "Cat assignment operator called" << std::endl;
 	if (this != &rhs)
+	{
 		this->type = rhs.getType();
+		if (brain)
+		{
+			delete this->brain;
+			this->brain = new Brain(*rhs.brain);
+		}
+	}
 	return *this;
 }
 
 void Cat::makeSound() const
 {
-	std::cout << "Meeow" << std::endl;
+	std::cout << "Meow" << std::endl;
 }
 
-std::ostream &operator<<(std::ostream &o, Cat const &i)
+void Cat::setBrain(Brain *brain)
 {
-	o << "Value = " << i.getType();
-	return o;
+	if (brain)
+	{
+		delete this->brain;
+		this->brain = new Brain(*brain);
+	}
 }
+
+Brain *Cat::getBrain() const
+{
+	return brain;
+}
+
+
